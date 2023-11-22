@@ -10,11 +10,11 @@ export const NavbarBox = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 20px;
-  background: linear-gradient(45deg, rgba(255, 153, 2, 0.5) 20%, rgba(255, 153, 204, 0.4) 100%);
+  background: linear-gradient(45deg, #ffd1dc, #a7e9af);
 `;
 
 export const NavbarTitle = styled.div`
-  margin-left: 20px;
+  margin-left: 30px;
 `;
 
 export const NavbarLogin = styled.div`
@@ -23,4 +23,26 @@ export const NavbarLogin = styled.div`
   align-items: center;
   margin-right: 20px;
   background-color: transparent;
+`;
+
+export const FooterContainer = styled.div`
+  margin: 30px 40px 0px 40px;
+  padding: 20px 0 0 0;
+  border-top: 1px solid black;
+  flex-shrink: 0;
+  position: relative;
+  bottom: 0;
+  width: 95%;
+  height: 100%;
+`;
+
+export const LinkStyle = styled.a`
+  margin-right: 10px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+
+  &:visited {
+    color: inherit; /* 또는 다른 색상으로 지정할 수 있습니다. */
+  }
 `;

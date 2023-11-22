@@ -12,27 +12,27 @@ const SignUp = ({ onClose }) => {
   const [newUserName, setNewUserName] = useState({
     username: '',
   });
-  const BASE_URL = 'http://localhost:4000';
+  const BASE_URL = 'https://port-0-rolling-paper-3szcb0g2blp9q5y23.sel5.cloudtype.app/api';
 
   const handleSignUp = async () => {
     try {
       const response = await axios.post(`${BASE_URL}/signup`, {
         userId: newUserId.userId,
         password: newPassword.password,
-        username: newUserName.username,
+        userName: newUserName.username,
       });
 
       console.log('회원가입 성공:', response.data);
       alert('회원가입이 성공적으로 완료되었습니다.');
-
       onClose();
     } catch (error) {
       console.error('회원가입 실패:', error);
 
       // 에러 메시지 출력
       if (error.response) {
-        console.error('응답 데이터:', error.response.data);
         console.error('상태 코드:', error.response.status);
+        console.error('응답 데이터:', error.response.data);
+        alert(`회원가입 실패: ${error.response.data.message}`);
       } else if (error.request) {
         console.error('요청이 전송되지 않음');
       } else {
@@ -106,11 +106,11 @@ const SignUp = ({ onClose }) => {
         </LoginButton>
         <br />
         <div>
-          <Information href="https://www.naver.com/" target="_blank">
-            이용약관
+          <Information href="https://teamsparta.notion.site/247d57da1322424d8e8c551df21a048e" target="_blank">
+            서비스 이용약관
           </Information>
           <span style={{ fontSize: '20px', marginLeft: '10px', marginRight: '10px' }}> | </span>
-          <Information href="https://www.naver.com/" target="_blank">
+          <Information href="https://teamsparta.notion.site/7b1dc644460946f08bab08b794de685f" target="_blank">
             개인정보처리방침
           </Information>
         </div>
