@@ -7,19 +7,33 @@ const StPaperWrap = styled.div`
   border-left: none;
   `
 
+const StLabel = styled.label`
+  margin: 16px;
+  font-size: 26px;
+`
+
 const StInput = styled.input`
   width: 70%;
   height: 60px;
-  margin: 10px;
+  margin-top: 20px;
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
+  &::placeholder {
+  color: #ffd1dc;
+}
 `
+
+const StBtn = styled.button`
+  margin: 16px;
+  background-color: #ffd1dc;
+  `
 
 const StPaperBox = styled.div`
   margin: 20px;
-  height: 100%;
-  background-color: #bbbbbb;
+  padding: 20px;
+  height: 80%;
+  background-color: #dddddd;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -27,9 +41,9 @@ const StPaperBox = styled.div`
 
 const StPaper = styled.div`
   width: 16%;
-  height: 200px;
+  height: 160px;
   padding: 20px;
   background-color: #ffffff;
 `
 
-export {StPaperWrap,StInput,StPaper,StPaperBox}
+export {StPaperWrap,StLabel,StInput,StBtn,StPaper,StPaperBox}

@@ -23,16 +23,12 @@ const MyPage = () => {
   });
   if (isError) return <div>마이페이지 에러 오류</div>
 
-  // console.log("data",data);
-  // console.log("params",params);
-  // console.log("rollingPaper",rollingPaper);
-
   return (
     <StWrap>
       <StName>{rollingPaper.userName}님의 롤링페이지✨</StName>
       <StMyWrap>
       <MyBio rollingPaper={rollingPaper}/>
-      <MyPapers rollingPaper={rollingPaper}/>
+      <MyPapers/>
       </StMyWrap>
     </StWrap>
     );

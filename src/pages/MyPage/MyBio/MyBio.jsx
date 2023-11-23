@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StBioWrap,StName,StBio, StTextInput, StForm } from './styles';
+import { StBioWrap,StName,StBio, StTextInput, StForm, StBtn, StBold } from './styles';
 import { useMutation, useQueryClient } from 'react-query';
 import { putBio } from '../../../api/rollingPaper';
 
@@ -31,15 +31,16 @@ const MyBio = ({rollingPaper}) => {
     };
 
     mutation.mutate(newBio);
-    // setBio("");
+    setBio("");
   };
   return (
   <StBioWrap>
-    <StName>(이름 or 사진) {rollingPaper.userName} </StName>
-    <StBio>(각자 자기소개) {rollingPaper.bio}
+    <StName>{rollingPaper.userName}님에게 전달하고 싶은 말을 남겨주세요💗 </StName>
+    <StBio>{rollingPaper.userName}님의 자기소개 : <StBold>{rollingPaper.bio}</StBold>
     <StForm onSubmit={submitHandler}>
-    <StTextInput rows={10} cols={30} value={bio} onChange={(e) => setBio(e.target.value)}/>
-    <button type="submit">입력</button>
+    <StTextInput rows={10} cols={30} placeholder=' 자기소개를 입력해주세요!'
+    value={bio} onChange={(e) => setBio(e.target.value)}/>
+    <StBtn type="submit">입력</StBtn>
     </StForm>
     </StBio>
   </StBioWrap>

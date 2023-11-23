@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { StInput, StPaperWrap,StPaper, StPaperBox } from './styles'
+import { StInput, StPaperWrap,StBtn,StPaper,StPaperBox,StLabel } from './styles'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { addCmt, deleteCmt, getCmt } from '../../../api/rollingPaper';
 import { useParams } from 'react-router-dom';
 
-const MyPapers = ({rollingPaper}) => {
+const MyPapers = () => {
   const { userId } = useParams(); // getCmt에서 필요한 userId
 
   const queryClient = useQueryClient();
@@ -30,18 +30,15 @@ const submitHandler = (event) => {
   }
 
   // 새로 추가하려는 newCmt
-  const newCmt = {
-      comments: [
-        ...comments.comments,
-        { comment: cmt }
-      ],
-    };
-  // const newCmt = {
-  //   comments: cmt,
+  const newCmt ={
+    comment: cmt
+  };
+  // const newCmt ={
+  //   comment: cmt
   //   commentId: Date.now()
-  // }; // Request failed with status code 401 (Unauthorized)
+  // };
   mutation.mutate(newCmt);
-  // setCmt('');
+  setCmt('');
 };
 
 const deleteMutation = useMutation(deleteCmt, {
@@ -51,7 +48,7 @@ const deleteMutation = useMutation(deleteCmt, {
   },
 });
 
-const CONFIRM_MESSAGE = `"${cmt}" 정말로 삭제하시겠습니까?`;
+const CONFIRM_MESSAGE = `${cmt} 정말로 삭제하시겠습니까?`;
 const deleteHandler = (commentId) => {
   if (window.confirm(CONFIRM_MESSAGE)) {
     deleteMutation.mutate(commentId); // (book.id);
@@ -61,9 +58,9 @@ const deleteHandler = (commentId) => {
   return (
   <StPaperWrap>
     <form onSubmit={submitHandler}>
-      <label>롤링페이퍼</label>
-      <StInput label="롤링페이퍼" value={cmt} onChange={e => setCmt(e.target.value)}/>
-      <button type="submit">작성</button>
+      <StLabel>롤링페이퍼</StLabel>
+      <StInput label="롤링페이퍼" placeholder='   남기고픈 말을 입력해주세요!' value={cmt} onChange={e => setCmt(e.target.value)}/>
+      <StBtn type="submit">작성</StBtn>
     </form>
     <StPaperBox>
       {data?.comments?.map((item) => (
