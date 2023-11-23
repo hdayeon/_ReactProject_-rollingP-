@@ -8,11 +8,14 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     console.log("인터셉트 요청 성공!");
-    const token = sessionStorage.getItem('authToken');
+    const token = sessionStorage.getItem('accessToken');
     console.log("요청 인터셉트 token",token);
     console.log("요청 인터셉트 config",config);
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`; // Bearer 토큰 형식
+      config.headers.Authorization = `${token}`; // Bearer 토큰 형식
+      console.log("config.headers.Authorization",config.headers.Authorization);
+
+      // config.headers.Authorization = `Bearer ${token}`; // Bearer 토큰 형식
     }
     return config;
   },

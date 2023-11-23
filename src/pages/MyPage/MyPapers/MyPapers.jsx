@@ -31,9 +31,8 @@ const submitHandler = (event) => {
 
   // 새로 추가하려는 newCmt
   const newCmt = {
-    ...rollingPaper,
       comments: [
-        ...rollingPaper.comments,
+        ...comments.comments,
         { comment: cmt }
       ],
     };
