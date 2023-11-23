@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { addCmt, deleteCmt, getCmt } from '../../../api/rollingPaper';
 import { useParams } from 'react-router-dom';
 
-const MyPapers = () => {
+const MyPapers = ({rollingPaper}) => {
   const { userId } = useParams(); // getCmt에서 필요한 userId
 
   const queryClient = useQueryClient();
@@ -39,8 +39,8 @@ const submitHandler = (event) => {
     };
   // const newCmt = {
   //   comments: cmt,
-  //   // commentId: Date.now()
-  // };
+  //   commentId: Date.now()
+  // }; // Request failed with status code 401 (Unauthorized)
   mutation.mutate(newCmt);
   // setCmt('');
 };

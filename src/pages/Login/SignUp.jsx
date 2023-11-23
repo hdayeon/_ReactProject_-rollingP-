@@ -22,7 +22,7 @@ const SignUp = ({ onClose }) => {
         userName: newUserName.username,
       });
 
-      console.log('회원가입 성공:', response.data);
+      console.log('회원가입 성공:', response);
       alert('회원가입이 성공적으로 완료되었습니다.');
       onClose();
     } catch (error) {

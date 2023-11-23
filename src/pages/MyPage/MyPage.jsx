@@ -32,7 +32,7 @@ const MyPage = () => {
       <StName>{rollingPaper.userName}님의 롤링페이지✨</StName>
       <StMyWrap>
       <MyBio rollingPaper={rollingPaper}/>
-      <MyPapers/>
+      <MyPapers rollingPaper={rollingPaper}/>
       </StMyWrap>
     </StWrap>
     );
